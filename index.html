@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auctora Collection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blush: '#FFE3E3',
+            lilac: '#D0BFFF',
+            skyblue: '#AEE2FF',
+            coral: '#FFBFA9',
+            softwhite: '#FFF9F9',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFF9F9;
+      cursor: none;
+      
+    }
+    #custom-cursor {
+      pointer-events: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      background: url('https://img.icons8.com/ios-filled/50/shopping-cart.png') no-repeat center center / contain;
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #966FD6;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 9999;
+      display: none;
+    }
+    .scroll-to-top:hover {
+      background-color: #7D54AE;
+    }
+
+     /* Sakura animation */
+     .sakura-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }.sakura {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://img.icons8.com/ios-filled/50/flower.png'); /* Gambar bunga sakura */
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+      }
+    }
+
+    .sakura:nth-child(odd) {
+      animation-duration: 6s;
+    }
+
+    .sakura:nth-child(even) {
+      animation-duration: 8s;
+    }
+
+    .sakura:nth-child(3n) {
+      animation-duration: 5s;
+    }
+
+    .sakura:nth-child(4n) {
+      animation-duration: 7s;
+    }
+  </style>
+</head>
+
+<body class="relative">
+  <!-- Sakura Fall Animation -->
+<div class="sakura-container">
+  <div class="sakura" style="left: 2%; animation-delay: 0s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 4%; animation-delay: 0.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 6%; animation-delay: 1s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 8%; animation-delay: 1.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 10%; animation-delay: 2s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 12%; animation-delay: 2.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 14%; animation-delay: 3s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 16%; animation-delay: 3.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 18%; animation-delay: 4s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 20%; animation-delay: 4.5s; background-image: url('sakura.png');"></div>
+
+  <div class="sakura" style="left: 22%; animation-delay: 5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 24%; animation-delay: 5.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 26%; animation-delay: 6s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 28%; animation-delay: 6.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 30%; animation-delay: 7s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 32%; animation-delay: 7.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 34%; animation-delay: 8s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 36%; animation-delay: 8.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 38%; animation-delay: 9s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 40%; animation-delay: 9.5s; background-image: url('sakura.png');"></div>
+
+  <div class="sakura" style="left: 42%; animation-delay: 10s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 44%; animation-delay: 10.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 46%; animation-delay: 11s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 48%; animation-delay: 11.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 50%; animation-delay: 12s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 52%; animation-delay: 12.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 54%; animation-delay: 13s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 56%; animation-delay: 13.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 58%; animation-delay: 14s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 60%; animation-delay: 14.5s; background-image: url('sakura.png');"></div>
+
+  <div class="sakura" style="left: 62%; animation-delay: 15s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 64%; animation-delay: 15.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 66%; animation-delay: 16s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 68%; animation-delay: 16.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 70%; animation-delay: 17s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 72%; animation-delay: 17.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 74%; animation-delay: 18s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 76%; animation-delay: 18.5s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 78%; animation-delay: 19s; background-image: url('sakura.png');"></div>
+  <div class="sakura" style="left: 80%; animation-delay: 19.5s; background-image: url('sakura.png');"></div>
+</div>
+
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor"></div>
+
+  <!-- Header -->
+  <header class="bg-blush text-center py-8 rounded-b-3xl shadow-md">
+    <h1 class="text-5xl font-bold text-gray-800">Auctora Collection</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="text-center mt-4">
+    <a href="aboutme.html" class="text-lilac mx-3 hover:underline">About Me</a>
+    <a href="gallery.html" class="text-lilac mx-3 hover:underline">Gallery</a>
+    <a href="contact.html" class="text-lilac mx-3 hover:underline">Contact</a>
+  </nav>
+
+  <!-- Alert -->
+  <div class="bg-coral text-white text-center font-semibold py-2 mt-4">Selamat Berbelanja</div>
+
+<!-- Hero Welcome -->
+<section class="text-center py-10">
+  <h2 class="text-3xl font-bold text-coral mb-4">Top Picks</h2>
+  <div class="flex justify-center gap-4 flex-wrap px-4">
+    <!-- Baju -->
+    <div class="bg-blush rounded-xl p-6 w-32 h-32 flex items-center justify-center shadow">
+      <img src="https://img.icons8.com/ios-filled/50/t-shirt--v1.png" alt="Baju" />
+    </div>
+
+    <!-- Celana & Rok -->
+    <div class="bg-lilac rounded-xl p-6 w-32 h-32 flex items-center justify-center shadow">
+      <img src="https://img.icons8.com/ios-filled/50/trousers.png" alt="Celana & Rok" />
+    </div>
+
+    <!-- Dress -->
+    <div class="bg-skyblue rounded-xl p-6 w-32 h-32 flex items-center justify-center shadow">
+      <img src="https://img.icons8.com/ios-filled/50/dress-front-view.png" alt="Dress" />
+    </div>
+
+    <!-- Alat Tulis -->
+    <div class="bg-blush rounded-xl p-6 w-32 h-32 flex items-center justify-center shadow">
+      <img src="https://img.icons8.com/ios-filled/50/pen.png" alt="Alat Tulis" />
+    </div>
+
+     <!-- Sandal / Heels -->
+  <div class="bg-lilac rounded-xl p-6 w-32 h-32 flex items-center justify-center shadow">
+    <img src="./iconsepatu.png" alt="Sandal / Heels" />
+  </div>
+
+    <!-- Buku & Alat Tulis -->
+    <div class="bg-skyblue rounded-xl p-6 w-32 h-32 flex items-center justify-center shadow">
+      <img src="https://img.icons8.com/ios-filled/50/book--v1.png" alt="Buku & Alat Tulis" />
+    </div>
+  </div>
+
+  <!-- Shop Now Button -->
+  <a href="https://collshp.com/auctora" class="mt-6 inline-block bg-coral text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-[#ff8f7c]">Shop Now</a>
+</section>
+
+<!-- Produk Terbaik Section -->
+<section class="text-center py-10">
+    <h2 class="text-3xl font-bold text-coral mb-6">Produk Terbaik Pilihan</h2>
+    <div class="flex flex-wrap justify-center gap-6 px-4">
+  
+      <!-- Card Alat Tulis -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="image.png" alt="Alat Tulis" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Alat Tulis Lucu</h3>
+        <p class="text-sm text-gray-500 mb-3">Set alat tulis lengkap & estetik buat journaling.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Baju -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="bajucasual2.png" alt="Baju" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Baju Casual</h3>
+        <p class="text-sm text-gray-500 mb-3">Baju nyaman untuk daily outfit kamu.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Celana -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="celana2.png" alt="Celana" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Celana High Waist</h3>
+        <p class="text-sm text-gray-500 mb-3">Nyaman dipakai, model kekinian.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Sandal -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="sandal1.png" alt="Sandal" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Sandal Wanita</h3>
+        <p class="text-sm text-gray-500 mb-3">Sandal kece, cocok buat hangout.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Sepatu -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="sneakers1.png" alt="Sepatu" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Sneakers</h3>
+        <p class="text-sm text-gray-500 mb-3">Sepatu nyaman, cocok untuk daily style.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Skincare -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="skincare2.jpg" alt="Skincare" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Skincare Glowing</h3>
+        <p class="text-sm text-gray-500 mb-3">Perawatan kulit biar makin cerah & sehat.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Buku -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="buku1.jpg" alt="Buku" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Buku Best Seller</h3>
+        <p class="text-sm text-gray-500 mb-3">Buku seru dan inspiratif buat teman santai.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Tas -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="tas1.jpg" alt="Tas" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Tas Fashionable</h3>
+        <p class="text-sm text-gray-500 mb-3">Tas stylish buat jalan atau kuliah.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Heels -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="heels.jpg" alt="Heels" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Heels Elegan</h3>
+        <p class="text-sm text-gray-500 mb-3">Heels cantik untuk acara formal & casual.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Dress -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="dress1.jpg" alt="Dress" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Dress Cantik</h3>
+        <p class="text-sm text-gray-500 mb-3">Dress manis buat ngedate atau acara spesial.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+  
+      <!-- Card Elektronik -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="elektronik.jpg" alt="Elektronik" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Elektronik Keren</h3>
+        <p class="text-sm text-gray-500 mb-3">Gadget & device favorit yang lagi hits.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+ 
+      <!-- Card Lainnya -->
+      <div class="bg-blush rounded-xl w-60 p-4 shadow-lg">
+        <img src="lainnya.jpg" alt="Lainnya" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-semibold text-gray-700">Aksesoris & Lainnya</h3>
+        <p class="text-sm text-gray-500 mb-3">Item-item unik dan favorit lainnya.</p>
+        <a href="#" class="block bg-coral text-white py-2 rounded-lg hover:bg-[#ff8f7c]">Lihat Produk</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/long-arrow-up.png" alt="Scroll to Top" />
+    </button>
+
+  <!-- Lookbook Section -->
+  <section class="text-center py-10">
+    <h2 class="text-3xl font-bold text-lilac mb-4">My Lookbook</h2>
+    <div class="w-3/4 mx-auto bg-lilac h-4 rounded-full mb-2"></div>
+    <div class="w-2/3 mx-auto bg-lilac h-4 rounded-full"></div>
+  </section>
+
+  <!-- Shop Links Section -->
+  <section class="text-center py-10 bg-blush">
+    <h3 class="text-xl font-semibold mb-4">Belanja di:</h3>
+    <div class="flex justify-center gap-4">
+      <a href="https://collshp.com/auctora" class="flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
+        <img src="https://img.icons8.com/color/24/shopee.png" />
+        Shopee
+      </a>
+      <a href="https://vt.tiktok.com/ZSrspMKu9/?page=Mall" class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-800">
+        <img src="https://img.icons8.com/ios-filled/24/tiktok--v1.png" />
+        TikTok
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-6 mt-10">
+    <div class="flex justify-center gap-4 mb-4">
+      <a href="https://www.instagram.com/__y.zr?igsh=ZjBsc2R5anpwNHM=" target="_blank" class="hover:text-navygelap">
+        <img src="https://img.icons8.com/ios-filled/30/000000/instagram-new.png" alt="Instagram"/>
+      </a>
+      <a href="https://tiktok.com/@yourusername" target="_blank" class="hover:text-navygelap">
+        <img src="https://img.icons8.com/ios-filled/30/000000/tiktok--v1.png" alt="TikTok"/>
+      </a>
+      <a href="https://wattpad.com/user/yourusername" target="_blank" class="hover:text-navygelap">
+        <img src="https://img.icons8.com/ios-filled/30/000000/wattpad.png" alt="Wattpad"/>
+      </a>
+      <a href="https://trakteer.id/Auctora/tip" target="_blank" class="hover:text-navygelap">
+        <img src="https://img.icons8.com/ios-filled/30/000000/coffee-to-go.png" alt="Trakteer"/>
+      </a>
+      <a href="https://saweria.co/auctora" target="_blank" class="hover:text-navygelap">
+        <img src="https://img.icons8.com/ios-filled/30/000000/money.png" alt="Saweria"/>
+      </a>
+    </div>
+    &copy; 2025 Auctora Collection
+  </footer>
+  <script>
+    // custom cursor follows
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+        // Scroll to top functionality
+        const scrollToTopButton = document.getElementById('scroll-to-top');
+
+// Show or hide scroll-to-top button based on scroll position
+window.addEventListener('scroll', () => {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    scrollToTopButton.style.display = 'block';
+  } else {
+    scrollToTopButton.style.display = 'none';
+  }
+});
+
+// Scroll to top when the button is clicked
+scrollToTopButton.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+  </script>
+<script>
+  // Kirim data affiliate ke server
+  function sendAffiliateData() {
+      const affiliate_id = getCookie('affiliate_id');
+      if (affiliate_id) {
+          fetch('https://websitekamu.com/save_affiliate.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: 'affiliate_id=' + encodeURIComponent(affiliate_id)
+          })
+          .then(response => response.text())
+          .then(data => {
+              console.log("Server response:", data);
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+      }
+  }
+  
+  // Jalankan saat user melakukan action penting, misal saat klik "Daftar"
+  document.getElementById('daftarButton').addEventListener('click', sendAffiliateData);
+  </script>
+  
+</body>
+</html>
