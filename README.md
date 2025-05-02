@@ -1,0 +1,2 @@
+# tokoku
+Shopee dan sosmed
